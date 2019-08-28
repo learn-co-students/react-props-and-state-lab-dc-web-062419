@@ -31,37 +31,13 @@ class App extends React.Component {
     })
   }
 
-  findPet = (pet) => {
-    let newPets = []
-    let found = 0
-    this.state.pets.forEach(animal => {
-      if (animal === pet) {
-        found = animal
-        found.isAdopted = true
-        newPets.push(found)
-      } else {
-        newPets.push(animal)
-      }
-    })
-    return newPets
+  onAdoptPet = (id) => {
+  const newPets = this.state.pets.map(pet => pet.id === id ? {...pet, isAdopted: true} : pet)
+  this.setState({
+    ...this.state,
+    pets: newPets
+  })
   }
-
-  onAdoptPet = (pet) => {
-    debugger
-   let petsArray = this.findPet(pet)
-   console.log(pet)
-   console.log(petsArray)
-   this.setState({
-     ...this.state,
-     pets: petsArray
-   })
-  debugger
-  }
-
-  // onAdoptPet = (pet) => {
-  //  let index = this.state.pets.findIndex((x) => x.id === pet.id)
-  //  this.state.pets[index] = pet
-  // }
 
   onFindPetsClick = () => {
     let url = '/api/pets'
