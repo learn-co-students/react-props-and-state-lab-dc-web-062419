@@ -14,6 +14,7 @@ class App extends React.Component {
     }
   }
 onFindPetsClick = () =>{
+  debugger
   if (this.state.filters.type !== 'all'){
   fetch(`/api/pets?type=${this.state.filters.type}`)
   .then(res => res.json())
