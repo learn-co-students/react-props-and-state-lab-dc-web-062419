@@ -2,16 +2,6 @@ import React from 'react'
 
 class Pet extends React.Component {
 
-
-  // whichGender = () => {
-  //   if (this.gender === "male") {
-  //     return ()
-  //   }
-  //  else if (this.gender === 'female') {
-  //     return ()
-  //   }
-  // }
-
   render() {
 
     let {name, gender, age, weight, isAdopted, id, type} = this.props.pet
